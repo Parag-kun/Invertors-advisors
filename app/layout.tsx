@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} h-screen flex flex-col`}>
+        <header className='grid grid-cols-10 max-[600px]:px-2 px-5 max-[600px]:pt-1 pt-2 min-h-[60px] gap-2'>
+          {/* Logo  */}
+          <div className='max-[600px]:col-span-2 col-span-1' >
+            <Image src={'/logo.jpeg'} width={60} height={60} alt='Go India Advisors'/>
+          </div>
+          {/* Search bar */}
+          <div className='max-[600px]:col-span-6 max-[1000px]:col-span-8 max-[1200px]:col-span-5 col-span-6 inline-block flex max-[600px]:py-3 py-2 relative'>
+            <input type="search" className='w-full h-full m-auto rounded bg-gray-200 focus:outline-none pl-4 shadow-[inset_0_0_4px_rgba(0,0,0,0.6)]'/>
+            <Image src={'/search-icon.avif'} width={20} height={20} alt='Search' className='absolute right-3 top-5'/>
+          </div>
+          {/* buttons and links */}
+          <div className='max-[1000px]:hidden max-[1200px]:col-span-4 col-span-3 flex items-center justify-between w-full max-[1200px]:text-[12px] max-[1500px]:text-sm pl-20'>
+            <a href="#">Contact Us</a>
+            <button className='max-[1000px]:px-2 px-5 py-2 border border-black rounded'>SIGN UP</button>
+            <button className='px-5 py-2 border border-black rounded'>SIGN IN</button>
+          </div>
+          <div className='min-[1000px]:hidden max-[600px]:col-span-2 col-span-1 w-10 h-10 rounded-full overflow-hidden m-auto'>
+            <Image src={'/avatar.jpeg'} width={40} height={40} alt='Av' />
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   )
 }
