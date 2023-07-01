@@ -58,6 +58,7 @@ const Home = () => {
           }
         </div>
       </div>
+      <button className="absolute right-4 bottom-4 w-16 h-16 text-[44px] flex items-center justify-center pb-2 font-extralight text-white rounded-full bg-sky-900">+</button>
     </div>
   )
 };
